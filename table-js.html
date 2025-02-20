@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript Table</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <table id="myTable">
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+            <th>Header 3</th>
+          </tr>
+          <tr>
+            <td>Cell 1</td>
+            <td>Cell 2</td>
+            <td>Cell 3</td>
+          </tr>
+          <tr>
+            <td>Cell 3</td>
+            <td>Cell 4</td>
+            <td>Cell 5</td>
+          </tr>
+    </table>
+  </body>
+</html>
+
+<script>
+// Replace the content of a specific cell and set its background color
+function replaceTableCellContentAndColor(tableId, rowIndex, cellIndex, newValue, backgroundColor) {
+  // Get the table by its ID
+  var table = document.getElementById(tableId);
+  
+  // Check if the table exists
+  if (!table) {
+    console.error('Table not found');
+    return;
+  }
+  
+  // Get the specific row
+  var row = table.rows[rowIndex];
+  
+  // Check if the row exists
+  if (!row) {
+    console.error('Row not found');
+    return;
+  }
+  
+  // Get the specific cell
+  var cell = row.cells[cellIndex];
+  
+  // Check if the cell exists
+  if (!cell) {
+    console.error('Cell not found');
+    return;
+  }
+  
+  // Replace the cell content
+  cell.innerHTML = newValue;
+
+  // Set the background color of the cell
+  cell.style.backgroundColor = backgroundColor;
+}
+
+// Example usage: Replace the content of the cell at row index 1 and cell index 1 and set its background color to 'lightblue'
+replaceTableCellContentAndColor('myTable', 1, 1, 'New Cell Content', 'lightblue')
+replaceTableCellContentAndColor('myTable', 2, 1, 'New Cell Content', 'green')
+
+</script>
